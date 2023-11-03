@@ -1,0 +1,22 @@
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### Mac OSX ###
+.DS_Store
+
+### vi swap and temporary files ###
+*~
+*.swp
+*.swo
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### VS Code ###
+.vscode/
