@@ -46,16 +46,11 @@ services:
       - "8080:8080/tcp"
 
   horizon-init:
-    image: opennms/horizon:32.0.4
-    depends_on:
-      database:
-        condition: service_healthy
-      kafka:
-        condition: service_started
+    image: quay.io/labmonkeys/git:2.40.1.b2311
     env_file: opennms-stack.env
     volumes:
-      - ./core/opennms-overlay:/opt/opennms-overlay
-    command: ["-i"]
+      - ./core/opennms-overlay:/data/opennms-overlay
+    command: ["/init.sh"]
 
   horizon:
     image: opennms/horizon:32.0.4
