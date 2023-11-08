@@ -20,3 +20,6 @@ target/
 
 ### VS Code ###
 .vscode/
+
+### Horizon Config
+core/opennms-overlay
