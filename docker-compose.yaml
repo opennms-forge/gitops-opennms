@@ -63,7 +63,7 @@ services:
     volumes:
       - opennms-data:/opennms-data
       - ./core/opennms-overlay:/opt/opennms-overlay
-    command: ["-f"]
+    command: ["-s"]
     healthcheck:
       test: [ "CMD", "curl", "-f", "-I", "http://localhost:8980/opennms/login.jsp" ]
       interval: 1m
