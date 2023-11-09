@@ -12,7 +12,7 @@ services:
     volumes:
       - database-data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready" ,"-U", "postgres"]
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 5s
       timeout: 3s
       retries: 1
@@ -53,7 +53,7 @@ services:
     command: ["/init.sh"]
 
   horizon:
-    image: opennms/horizon:32.0.4
+    image: opennms/horizon:32.0.5
     depends_on:
       database:
         condition: service_healthy
@@ -74,7 +74,7 @@ services:
       - "8980:8980/tcp"
 
   minion:
-    image: opennms/minion:32.0.4
+    image: opennms/minion:32.0.5
     depends_on:
       kafka:
         condition: service_started
