@@ -21,7 +21,7 @@ Managing the configuration of a monitoring system gives various benefits to a ne
 
 ## 👩‍🔬 Challenges
 
-* Identify immutable vs. mutable configurations, make it possible to run a development environment easy possible to develop configurations someone wants to upload to the Git repository.
+* Identify immutable vs. mutable configurations, make it possible to run a development environment easily to develop configurations.
 * 🚫 Any change you make in the administrative UI won't be persisted. Only configuration coming from the Git repository will be used on container restart.
 * Update conflicts **should** be minimized, because we only manage very stable configuration files.
 
