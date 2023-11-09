@@ -46,6 +46,20 @@ When you run `docker compose up -d` the following things happen:
 
 You can run just the horizon-init container with `docker compose up horizon-init` to fetch and populate opennms-overlay directory.
 
+## 🧟‍♀️ Troubleshooting
+
+If you want to just start the Horizon container with a bash for debugging you can run
+
+```
+docker compose run --entrypoint /usr/bin/bash horizon
+```
+
+If you just want to fetch the current config from the Git config repository you can run:
+
+```
+docker compose up horizon-init
+```
+
 ## 👋 Say hi
 
 You are very welcome to join us in working on this topic.
