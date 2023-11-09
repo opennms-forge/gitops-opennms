@@ -1,8 +1,8 @@
 # 🚀 Welcome
 
-This repository is a proof of concept to identify how to run OpenNMS Horizon with a managed configuration using a version control system and running in a container.  
-Configuring a monitoring system is a challenging task.  
-Requirements of what and how things are monitored change over time, and people must adjust accordingly.  
+This repository is a proof of concept to identify how to run OpenNMS Horizon with a managed configuration using a version control system and running in a container.
+Configuring a monitoring system is a challenging task.
+Requirements of what and how things are monitored change over time, and people must adjust accordingly.
 When we are talking here about OpenNMS Horizon, you can use it with OpenNMS Meridian interchangeably, they both share the same source code just with a different release and maintenance lifecycle.
 Additionally, the OpenNMS Horizon monitoring system itself needs to deal with varying monitoring workloads, most of the time the larger workloads are:
 
@@ -48,7 +48,7 @@ You can run just the horizon-init container with `docker compose up horizon-init
 
 ## 👋 Say hi
 
-You are very welcome to join us working on this topic.
+You are very welcome to join us in working on this topic.
 You can find us at:
 
 * Public OpenNMS [Mattermost Chat](https://chat.opennms.com/opennms/channels/opennms-discussion)
