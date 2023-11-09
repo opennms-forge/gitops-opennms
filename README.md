@@ -53,6 +53,7 @@ If you want to just start the Horizon container with a bash for debugging you ca
 ```
 docker compose run --entrypoint /usr/bin/bash horizon
 ```
+You can run now  `/entrypoint.sh -s` but you can keep a bash open for troubleshooting even if the command fails.
 
 If you just want to fetch the current config from the Git config repository you can run:
 
