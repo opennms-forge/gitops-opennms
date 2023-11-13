@@ -28,6 +28,7 @@ The idea is leveraging the order of the container convention to apply core confi
 * Identify immutable vs. mutable configurations, make it possible to run a development environment easily to develop configurations.
 * 🚫 Any change you make in the administrative UI won't be persisted. Only configuration coming from the Git repository will be used on container restart.
 * Update conflicts **should** be minimized, because we only manage very stable configuration files.
+* We are using a simple docker compose playground, how persistence is managed in k8s can be derived from the principles shown here in the stack.
 
 ## 🤹‍ Requirements
 
