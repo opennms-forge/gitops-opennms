@@ -19,13 +19,17 @@ Managing the configuration of a monitoring system gives various benefits to a ne
 * Track changes and being able to roll back
 * Introducing quality gates and getting monitoring configuration into production
 
+The idea is leveraging the order of the container convention to apply core configurations:
+
+![config-layer.png](config-layer.png)
+
 ## 👩‍🔬 Challenges
 
 * Identify immutable vs. mutable configurations, make it possible to run a development environment easily to develop configurations.
 * 🚫 Any change you make in the administrative UI won't be persisted. Only configuration coming from the Git repository will be used on container restart.
 * Update conflicts **should** be minimized, because we only manage very stable configuration files.
 
-## 🤹‍♀️ Requirements
+## 🤹‍ Requirements
 
 * Docker with Docker Compose
 * 8 GB RAM for the stack
@@ -46,7 +50,7 @@ When you run `docker compose up -d` the following things happen:
 
 You can run just the horizon-init container with `docker compose up horizon-init` to fetch and populate opennms-overlay directory.
 
-## 🧟‍♀️ Troubleshooting
+## 🧟‍ Troubleshooting
 
 If you want to just start the Horizon container with a bash for debugging you can run
 
