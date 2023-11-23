@@ -18,15 +18,16 @@ Managing the configuration of a monitoring system gives various benefits to a ne
 * Allow collaboration on developing and sharing monitoring configurations without a need to give them access to OpenNMS Horizon itself
 * Track changes and being able to roll back
 * Introducing quality gates and getting monitoring configuration into production
+* Investigate a minimal configuration to allow people to use it as a base deployment to build a solution on top of it.
 
-The idea is leveraging the order of the container convention to apply core configurations:
+The idea is to leverage the order of the container convention to apply core configurations:
 
 ![config-layer.png](config-layer.png)
 
 ## 👩‍🔬 Challenges
 
 * Identify immutable vs. mutable configurations, make it possible to run a development environment easily to develop configurations.
-* 🚫 Any change you make in the administrative UI won't be persisted. Only configuration coming from the Git repository will be used on container restart.
+* 🚫 Any change you make in the administrative UI won't persist. Only configuration coming from the Git repository will be used on container restart.
 * Update conflicts **should** be minimized, because we only manage very stable configuration files.
 * We are using a simple docker compose playground, how persistence is managed in k8s can be derived from the principles shown here in the stack.
 
