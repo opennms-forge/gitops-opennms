@@ -2,7 +2,6 @@
 version: '3.8'
 
 volumes:
-  opennms-data:
   database-data:
 
 services:
@@ -45,24 +44,12 @@ services:
     ports:
       - "8080:8080/tcp"
 
-  horizon-init:
-    image: quay.io/labmonkeys/git:2.40.1.b2311
-    env_file: opennms-stack.env
-    volumes:
-      - ./core/opennms-overlay:/data/opennms-overlay
-    command: ["/init.sh"]
-
   eventd:
     image: quay.io/opennms-labs/eventd:latest
     depends_on:
       database:
         condition: service_healthy
-      horizon-init:
-        condition: service_completed_successfully
     env_file: opennms-stack.env
-    volumes:
-      - opennms-data:/opennms-data
-      - ./core/opennms-overlay:/opt/opennms-overlay
     command: ["-s"]
     ports:
       - "5817:5817/tcp"
