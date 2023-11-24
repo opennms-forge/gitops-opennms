@@ -1,0 +1,3 @@
+<?xml version="1.0"?>
+<wmi-datacollection-config rrdRepository="/var/lib/opennms/rrd/snmp/">
+</wmi-datacollection-config>

@@ -1,0 +1,7 @@
+<notifications xmlns="http://xmlns.opennms.org/xsd/notifications">
+   <header>
+      <rev>1.2</rev>
+      <created>Wednesday, February 6, 2002 10:10:00 AM EST</created>
+      <mstation>localhost</mstation>
+   </header>
+</notifications>

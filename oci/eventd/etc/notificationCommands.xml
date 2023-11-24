@@ -1,0 +1,7 @@
+<notification-commands xmlns="http://xmlns.opennms.org/xsd/notificationCommands">
+   <header>
+      <ver>.9</ver>
+      <created>Wednesday, February 6, 2002 10:10:00 AM EST</created>
+      <mstation>master.nmanage.com</mstation>
+   </header>
+</notification-commands>
