@@ -1,0 +1,5 @@
+<model-import xmlns="http://xmlns.opennms.org/xsd/config/model-import" date-stamp="2023-02-27T12:44:36.800+01:00" foreign-source="selfmonitor" last-import="2022-06-30T12:13:13.701+02:00">
+    <node building="selfmonitor" foreign-id="1" node-label="localhost">
+        <interface descr="disc-if" ip-addr="127.0.0.1" managed="true" status="1" snmp-primary="P"/>
+    </node>
+</model-import>

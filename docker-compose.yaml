@@ -3,6 +3,8 @@ version: '3.8'
 
 volumes:
   database-data:
+  core-imports-data:
+  core-fs-data:
 
 services:
   database:
@@ -44,13 +46,70 @@ services:
     ports:
       - "8080:8080/tcp"
 
-  eventd:
-    image: quay.io/opennms-labs/eventd:latest
+  core:
+    image: opennms/horizon:32.0.5
     depends_on:
       database:
         condition: service_healthy
     env_file: opennms-stack.env
     command: ["-s"]
+    volumes:
+      - ./core/opennms-overlay:/opt/opennms-overlay
+      - core-imports-data:/usr/share/opennms/etc/imports
+      - core-fs-data:/usr/share/opennms/etc/foreign-sources
     ports:
       - "5817:5817/tcp"
       - "5817:5817/udp"
+
+  webapp:
+    image: opennms/horizon:32.0.5
+    depends_on:
+      database:
+        condition: service_healthy
+      core:
+        condition: service_started
+    env_file: opennms-stack.env
+    command: ["-s"]
+    volumes:
+      - ./webapp/opennms-overlay:/opt/opennms-overlay
+      - core-imports-data:/usr/share/opennms/etc/imports
+      - core-fs-data:/usr/share/opennms/etc/foreign-sources
+    ports:
+      - "8980:8980/tcp"
+      - "8101:8101/tcp"
+
+  pollerd:
+    image: opennms/horizon:32.0.5
+    depends_on:
+      database:
+        condition: service_healthy
+      core:
+        condition: service_started
+    env_file: opennms-stack.env
+    command: ["-s"]
+    volumes:
+      - core-imports-data:/usr/share/opennms/etc/imports
+      - core-fs-data:/usr/share/opennms/etc/foreign-sources
+
+  minion-01:
+    image: opennms/minion:32.0.5
+    depends_on:
+      kafka:
+        condition: service_started
+    environment:
+      TZ: Europe/Berlin
+      JAVA_MIN_MEM: 512M
+      JAVA_MAX_MEM: 2048M
+    volumes:
+      - ./minion/minion-config.yaml:/opt/minion/minion-config.yaml
+    command: ["-f"]
+    healthcheck:
+      test: "/health.sh"
+      interval: 30s
+      timeout: 20s
+      retries: 3
+    ports:
+      - "8201:8201/tcp"
+      - "162:1162/udp"
+      - "514:1514/udp"
+      - "9999:9999/udp"
