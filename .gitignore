@@ -23,3 +23,7 @@ target/
 
 ### Horizon Config
 core/opennms-overlay
+
+### git.oci
+**/*.oci
+git.oci/Dockerfile
